@@ -22,7 +22,8 @@ const Footer = () => {
                     <Image src={linkedInIcon} width={30} height={30} alt='facebook' />
                     <Image src={twitterIcon} width={30} height={30} alt='facebook' />
                 </Stack>
-                <div className='border-b-[1px] border-dashed'></div>
+                {/* <div className='border-b-[1px] border-dashed'></div> */}
+                <Box sx={{ border: "1px dashed lightgray"}}></Box>
                 <Stack direction="row" gap={2} justifyContent="space-between" alignItems="center" py={3}>
                     <Typography component="p" color="white">
                         &copy;2024 Hero Health Care. All Rights Reserved.
