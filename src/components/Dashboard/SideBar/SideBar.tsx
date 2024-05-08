@@ -9,11 +9,11 @@ import { getUserInfo } from "@/services/auth.services";
 import { useEffect, useState } from "react";
 
 const SideBar = () => {
-  const [userRole, setUserRole] = useState("");
+  const [userRole, setUserRole] = useState("admin");
 
   useEffect(() => {
     const { role } = getUserInfo() as any;
-    setUserRole(role);
+    // setUserRole(role);
   }, []);
 
   return (
