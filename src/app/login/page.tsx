@@ -3,7 +3,7 @@ import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import assets from "@/assets";
 import Link from "next/link";
-import { FieldValues} from "react-hook-form";
+import { FieldValues } from "react-hook-form";
 import { userLogin } from "@/services/actions/userLogin";
 import { storeUserInfo } from "@/services/auth.services";
 import { toast } from "sonner";
@@ -117,9 +117,19 @@ const LoginPage = () => {
                 </Grid>
               </Grid>
 
-              <Typography mb={1} textAlign="end" component="p" fontWeight={300}>
-                Forgot Password?
-              </Typography>
+              <Link href={'/forgot-password'}>
+                <Typography
+                  mb={1}
+                  textAlign='end'
+                  component='p'
+                  fontWeight={300}
+                  sx={{
+                    textDecoration: 'underline',
+                  }}
+                >
+                  Forgot Password?
+                </Typography>
+              </Link>
 
               <Button
                 sx={{
