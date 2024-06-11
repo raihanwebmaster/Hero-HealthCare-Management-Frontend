@@ -17,35 +17,41 @@ const Navbar = () => {
     logoutUser(router);
   };
   return (
-    <Container>
-      <Stack py={2} direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
-        <Typography variant="h4" component={Link} href="/" fontWeight={600}>
-          <Box component={"span"} color={"primary.main"} >HERO</Box> Health Care
-        </Typography>
-        <Stack direction={"row"} gap={4} justifyContent={"space-between"}>
-          <Typography component={Link} href="/consultation">Consultation</Typography>
-          <Typography component={Link} href="/health-plans">Health Plans</Typography>
-          <Typography component={Link} href="/medicine">Medicine</Typography>
-          <Typography component={Link} href="/daignostics">Diagnostics</Typography>
-          <Typography component={Link} href="/ngos">NGOs</Typography>
+    <Box
+      sx={{
+        bgcolor: 'primary.main',
+      }}
+    >
+      <Container>
+        <Stack py={2} direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+          <Typography variant="h4" component={Link} href="/" fontWeight={600}>
+            <Box component={"span"} color={"#ffffff"} >HERO</Box> Health Care
+          </Typography>
+          <Stack direction={"row"} gap={4} justifyContent={"space-between"}>
+            <Typography component={Link} href="/consultation" color={"#ffffff"}>Consultation</Typography>
+            <Typography component={Link} href="/health-plans" color={"#ffffff"}>Health Plans</Typography>
+            <Typography component={Link} href="/medicine" color={"#ffffff"}>Medicine</Typography>
+            <Typography component={Link} href="/daignostics" color={"#ffffff"}>Diagnostics</Typography>
+            <Typography component={Link} href="/ngos" color={"#ffffff"}>NGOs</Typography>
+            {userInfo?.userId ? (
+              <Typography component={Link} href='/dashboard' color={"#ffffff"}>
+                Dashboard
+              </Typography>
+            ) : null}
+          </Stack>
+          {/* <AuthButton /> */}
           {userInfo?.userId ? (
-            <Typography component={Link} href='/dashboard'>
-              Dashboard
-            </Typography>
-          ) : null}
+            <Button color='error' onClick={handleLogOut}>
+              Logout
+            </Button>
+          ) : (
+            <Button component={Link} href='/login'>
+              Login
+            </Button>
+          )}
         </Stack>
-        {/* <AuthButton /> */}
-        {userInfo?.userId ? (
-          <Button color='error' onClick={handleLogOut}>
-            Logout
-          </Button>
-        ) : (
-          <Button component={Link} href='/login'>
-            Login
-          </Button>
-        )}
-      </Stack>
-    </Container>
+      </Container>
+    </Box>
   )
 }
 
